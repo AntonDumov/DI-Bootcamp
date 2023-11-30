@@ -62,17 +62,18 @@ body {
     transition-duration: 0.2s;
 }
 
+@media (max-width: 780px) {
+    .product-card {
+        width: 47%;
+    }
+}
+
 @media (max-width: 480px) {
     .product-card {
         width: 100%;
     }
 }
 
-@media (max-width: 780px) {
-    .product-card {
-        width: 47%;
-    }
-}
 
 .product-card:hover {
     box-shadow: #d8d8d8 0 4px 13px 1px;
