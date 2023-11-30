@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+}
+.login-side, .register-side {
+    width: 50%;
+}
+
+input[type=email], input[type=password] {
+    display: block;
+    margin: 0.4rem;
+    width: 80%;
+}
+
+input[type=checkbox] {
+    display: inline-block;
+}
+
+#email, #password {
+    border-radius: 20px;
+    border: 1px solid #2d9fd9;
+    padding-left: 10px;
+}
+
+.login-body {
+    float: right;
+    min-width: 300px;
+}
+
+.login-button {
+    margin-top: 1rem;
+}
+
+.login-button > button {
+    padding-left: 10px;
+    margin: 0.4rem;
+    width: 80%;
+}
