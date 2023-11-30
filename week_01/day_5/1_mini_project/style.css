@@ -18,6 +18,11 @@ body {
     float: right;
 }
 
+.nav-container li:first-child {
+    float: left;
+}
+
+
 .nav-container a {
     color: #e3e3e3;
     text-align: center;
@@ -156,6 +161,7 @@ body {
 
 .product-actions .action:active {
     background-color: #fff;
+    color: #e3e3e3;
 }
 
 .product-description {
@@ -196,15 +202,18 @@ body {
     box-shadow: none;
     border-radius: 5px;
     cursor: pointer;
-    transition-duration: 0.1s;
+    transition-duration: 0.2s;
 }
 
-.product-description .add-to-card-button:hover {
-    border: 2px solid Grey;
+.product-card:hover .add-to-card-button {
+    background-color: mediumseagreen;
+    color: white;
+    border-color: white;
 }
 
-.product-description .add-to-card-button:active {
-    box-shadow: inset #6e6e6e 0 0 4px 1px;
+.product-card:hover .add-to-card-button:active {
+    background-color: white;
+    color: #808080;
 }
 
 section {
