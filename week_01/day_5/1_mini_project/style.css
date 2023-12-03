@@ -219,7 +219,7 @@ body {
 }
 
 section {
-    margin-bottom: 6rem;
+    /*margin-bottom: 6rem;*/
 }
 
 .footer-container {
@@ -228,7 +228,7 @@ section {
     height: 3rem;
     font-size: 20px;
     padding: 1rem 0.5rem;
-    position: fixed;
+    position: sticky;
     left: 0;
     bottom: 0;
     width: 100%;
