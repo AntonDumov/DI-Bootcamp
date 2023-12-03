@@ -258,8 +258,9 @@ section {
     border-radius: 5px;
     padding: 2px 5px;
     position: absolute;
-    display: none;
-    transition-duration: 0.2s;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 0.1s;
 }
 
 .tooltip:after {
@@ -274,5 +275,6 @@ section {
 }
 
 .action:hover .tooltip {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
