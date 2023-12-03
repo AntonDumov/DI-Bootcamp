@@ -62,13 +62,19 @@ body {
     transition-duration: 0.2s;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 768px) {
+    .product-card {
+        width: 22%;
+    }
+}
+
+@media (max-width: 768px) {
     .product-card {
         width: 47%;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .product-card {
         width: 100%;
     }
