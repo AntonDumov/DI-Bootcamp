@@ -40,7 +40,7 @@ body {
     color: #fff;
 }
 
-.nav-container .nav-logo {
+.nav-logo {
     float: left;
     font-size: 2rem;
     margin-top: -0.6rem;
@@ -153,6 +153,7 @@ body {
     font-size: 0.9rem;
     transition-duration: 0.2s;
     line-height: 1.9rem;
+    position: relative;
 }
 
 .product-actions .action:hover {
@@ -245,4 +246,33 @@ section {
 .footer-container li:last-child {
     float: right;
     margin-right: 20px;
+}
+
+.tooltip {
+    min-width: 7rem;
+    top: -150%;
+    left: -150%;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 2px 5px;
+    position: absolute;
+    display: none;
+    transition-duration: 0.2s;
+}
+
+.tooltip:after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 40%;
+    margin-left: 5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+}
+
+.action:hover .tooltip {
+    display: block;
 }
