@@ -1,0 +1,25 @@
+.outer-div {
+    border: 3px solid red;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.inner {
+    text-align: center;
+    background-color: pink;
+    height: 150px;
+}
+
+.inner-center {
+    text-align: center;
+    background-color:blueviolet;
+    width: 150px;
+    height: 150px;
+    align-self: flex-end;
+    
+
+}

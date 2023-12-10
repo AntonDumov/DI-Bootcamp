@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid black;
+        }
+
+        .main{
+            display: flex;
+            justify-content: center;
+            height: 70vh;
+            /* flex-direction: row; #default direction of flex */
+            border: 1px solid red;
+        }
+
+        .container-sides{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .container-c{
+            width: 70vw;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+    <div class="main">
+        <div class="container-sides">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="container-c">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+        <div class="container-sides">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    
+</body>
+</html>

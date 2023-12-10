@@ -1,0 +1,25 @@
+div.outer>div{
+    background-color: #2d9fd9;
+    text-align: center;
+    color: white;
+    min-height: 50px;
+    vertical-align: center;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+div.outer {
+    height: 300px;
+    width: 80vw;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    border-color: red;
+    border-width: thick;
+    border-style: solid;
+    padding: 10px;
+
+}
+

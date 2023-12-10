@@ -1,0 +1,27 @@
+.outer-div {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-content: center;
+}
+
+.logo {
+    text-align: center;
+    background-color: rgb(116, 81, 231);
+    flex-basis: 50px;
+    flex-grow: 1;
+}
+
+.team {
+    text-align: center;
+    background-color:aqua;
+    border: 5%;
+    flex-grow: 8;
+}
+
+.products {
+    text-align: center;
+    background-color: rgb(205, 118, 118);
+    border: 5%;
+    flex-grow: 8;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    .parent {
+        height: 600px;
+        width: 100%;
+        border: 5px solid red;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: stretch;
+    } 
+
+    .item {
+    color: white;
+    text-align: center;
+    margin: 3px;
+    background-color: blue;
+    flex-grow: 2;
+     /*flex-basis: 0; Set initial size to 0 to allow flex-grow to control the size */
+     /*flex-shrink: 1; Allow the items to shrink if needed */
+    }  
+    /* IMPORTANT: flex-grow, flex-shrink, and flex-basis properties specifically apply to the main axis, */
+
+    .two {
+        flex-grow: 4; /* Make the second item grow in the main axis twice as much as the others */
+        align-self: center;
+        width: 30vw;
+    }
+
+
+    </style>
+</head>
+<body>
+    <div class="parent" style="border: 2px solid red;">
+        <div class="item">1</div>    
+        <div class="item two">2</div>
+        <div class="item">3</div>        
+    </div>
+</body>
+</html>
