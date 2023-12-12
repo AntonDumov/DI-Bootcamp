@@ -45,9 +45,11 @@ if (newDog === 'Chihuahua') {
 
 let answer = Number(prompt("Write a number"))
 if (answer % 2 === 0) {
-    console.log('x is an even number')
+    console.log(`${answer} is an even number`)
+    alert(`${answer} is an even number`)
 } else {
-    console.log('x is an odd number')
+    console.log(`${answer} is an odd number`)
+    alert(`${answer} is an odd number`)
 }
 
 // 🌟 Exercise 4: Group Chat
