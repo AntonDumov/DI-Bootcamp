@@ -21,7 +21,7 @@ if (x > y) {
 //     Display the newDog variable in uppercase and then in lowercase (no need to create new variables, just console.log twice).
 //     Check if the variable newDog is equal to “Chihuahua”
 //         if it does, display ‘I love Chihuahuas, it’s my favorite dog breed’
-//         else, console.log ‘I dont care, I prefer cats’
+//         else, console.log ‘I don't care, I prefer cats’
 
 let newDog = 'German Shepherd'
 
