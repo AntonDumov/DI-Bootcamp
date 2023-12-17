@@ -15,9 +15,7 @@ const fruits = ["Banana", "Apples", "Oranges", "Blueberries"];
 
 let newFruits = fruits
 newFruits.shift()
-newFruits = newFruits.sort((a, b) => {
-    return a.localeCompare(b)
-})
+newFruits = newFruits.sort()
 newFruits.push('Kiwi')
 newFruits = newFruits.filter(v => {
     return v !== 'Apples'

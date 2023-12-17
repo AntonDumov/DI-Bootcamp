@@ -156,4 +156,4 @@ const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
 // Console.log the name of their secret society. The output should be “ABJKPS”
 
 let letters = names.map((x) => {return x[0]})
-console.log(letters.sort((a, b) => {return a.localeCompare(b)}).join(''))
+console.log(letters.sort().join(''))
