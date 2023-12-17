@@ -155,5 +155,5 @@ const names = ["Jack", "Philip", "Sarah", "Amanda", "Bernard", "Kyle"];
 // Hint: a string is an array of letters
 // Console.log the name of their secret society. The output should be “ABJKPS”
 
-let letters = names.map((x) => {return x[0]})
+let letters = names.map((name) => {return name[0]})
 console.log(letters.sort().join(''))
