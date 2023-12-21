@@ -11,6 +11,18 @@ const calculator = {
         } else {
             this.outputElement.innerText = this.result
         }
+    },
+    resetAfterResult: function () {
+        calculator.firstNumber = ''
+        calculator.secondNumber = ''
+        calculator.operator = ''
+        calculator.firstNumberComplete = false
+        this.refreshOutput()
+    },
+    reset: function () {
+        this.resetAfterResult();
+        this.result = ''
+        this.refreshOutput()
     }
 }
 
@@ -48,9 +60,18 @@ function equal() {
         case "/":
             calculator.result = Number(calculator.firstNumber) / Number(calculator.secondNumber)
     }
-    calculator.firstNumber = ''
-    calculator.secondNumber = ''
-    calculator.operator = ''
-    calculator.firstNumberComplete = false
+    calculator.resetAfterResult()
+}
+
+function reset() {
+    calculator.reset()
+}
+
+function clear() {
+    if (!calculator.firstNumberComplete) {
+        calculator.firstNumber = ''
+    } else {
+        calculator.secondNumber = ''
+    }
     calculator.refreshOutput()
 }
