@@ -14,16 +14,19 @@ function playTheGame() {
     let tries = 0;
     let outcome = false;
 
-    let number;
+    let number = null;
     // create a variable named computerNumber where the value is a random number between 0 and 10
     // (Hint: Use the built-in Math.random() function). Make sure that the number is rounded.
     const computerNumber = Math.floor(Math.random() * 11)
 
     // If the user guessed more than 3 times, alert “out of chances” and exit the function.
     while (tries !== 3 && outcome === false) {
-        number = guessNumber()
+        while (number === null) {
+            number = guessNumber()
+        }
         outcome = compareNumbers(number, computerNumber)
         tries += 1
+        number = null
     }
 
     if (!outcome) {
@@ -31,6 +34,7 @@ function playTheGame() {
     } else {
         alert('WINNER')
     }
+    console.log(`Computer number was ${computerNumber}`)
 }
 
 function guessNumber() {
@@ -47,7 +51,7 @@ function guessNumber() {
     } else {
         return number
     }
-    return null
+    return null;
 }
 
 
