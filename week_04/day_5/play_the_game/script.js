@@ -42,10 +42,10 @@ function guessNumber() {
     const number = Number(prompt('Enter a number between 0 and 10'))
 
     if (isNaN(number)) {
-        // If the user didn’t enter a number alert “Sorry Not a number, Goodbye”.
+        // If the user didn't enter a number alert “Sorry Not a number, Goodbye”.
         alert('Sorry Not a number, Goodbye');
     } else if (!(number >= 0 && number <= 10)) {
-        // If the user didn’t enter a number between 0 and 10 alert “Sorry it’s not a good number, Goodbye”.
+        // If the user didn't enter a number between 0 and 10 alert “Sorry it’s not a good number, Goodbye”.
         alert('Sorry it’s not a good number, Goodbye')
     } else {
         return number
