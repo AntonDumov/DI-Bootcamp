@@ -3,12 +3,24 @@ function playTheGame() {
     if (!answer) {
         return;
     }
-    let number = null;
-    while (number === null) {
-        number = guessNumber()
-    }
+
+    let tries = 0;
+    let outcome = false;
+
+    let number;
     const computerNumber = Math.floor(Math.random() * 11)
-    compareNumbers(number, computerNumber)
+
+    while (tries !== 3 && outcome === false) {
+        number = guessNumber()
+        outcome = compareNumbers(number, computerNumber)
+        tries += 1
+    }
+
+    if (!outcome) {
+        alert('out of chances')
+    } else {
+        alert('WINNER')
+    }
 }
 
 function guessNumber() {
@@ -23,20 +35,13 @@ function guessNumber() {
     return null
 }
 
-function compareNumbers(userNumber,computerNumber) {
-    let tries = 0
-    while (tries < 3) {
-        if (userNumber === computerNumber) {
-            alert('WINNER')
-            return;
-        } else if (userNumber > computerNumber) {
-            alert('Your number is bigger then the computer’s, guess again')
-            tries += 1
-        } else {
-            alert('Your number is smaller then the computer’s, guess again')
-            tries += 1
-        }
-        userNumber = guessNumber()
+function compareNumbers(userNumber, computerNumber) {
+    if (userNumber === computerNumber) {
+        return true;
+    } else if (userNumber > computerNumber) {
+        alert('Your number is bigger then the computer’s, guess again')
+    } else {
+        alert('Your number is smaller then the computer’s, guess again')
     }
-    alert('out of chances')
+    return false;
 }
