@@ -16,6 +16,3 @@ while (n > 0) {
         sub_n = n
     }
 }
-
-// The song should end with “0 bottle of beer on the wall” or “no bottle of beer on the wall”.
-console.log('0 bottle of beer on the wall')
