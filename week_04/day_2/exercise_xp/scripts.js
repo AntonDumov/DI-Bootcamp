@@ -120,3 +120,91 @@ function myBill() {
 // Call the myBill() function.
 console.log(myBill())
 
+// Exercise 5 : What’s In My Wallet ?
+// Note: Read the illustration (point 4), while reading the instructions
+//
+// Create a function named changeEnough(itemPrice, amountOfChange) that receives two arguments :
+//     an item price
+//     and an array representing the amount of change in your pocket.
+
+// Change will always be represented in the following order: quarters, dimes, nickels, pennies.
+
+// A quarters is 0.25
+// A dimes is 0.10
+// A nickel is 0.05
+// A penny is 0.01
+function changeEnough(itemPrice, amountOfChange) {
+    // In the function, determine whether you can afford the item.
+    const sumOfChange = amountOfChange[0] * 0.25 + amountOfChange[1] * 0.1 + amountOfChange[2] * 0.05 + amountOfChange[3] * 0.01
+
+    return sumOfChange >= itemPrice;
+}
+
+console.log(changeEnough(4.25, [25, 20, 5, 0]))
+
+
+// 🌟 Exercise 6 : Vacations Costs
+// Let’s create functions that calculate your vacation’s costs:
+
+// Define a function called hotelCost().
+function hotelCost() {
+    // It should ask the user for the number of nights they would like to stay in the hotel.
+    let numberOfNights = Number(prompt('How many nights would you like to stay?'))
+    // If the user doesn’t answer or if the answer is not a number, ask again.
+    while (isNaN(numberOfNights) || numberOfNights === 0) {
+        numberOfNights = Number(prompt('Write a number'))
+    }
+    // The hotel costs $140 per night. The function should return the total price of the hotel.
+    return numberOfNights * 140
+}
+
+// Define a function called planeRideCost().
+function planeRideCost() {
+    // It should ask the user for their destination.
+    let destination = prompt('What is your desired destination')
+    // If the user doesn’t answer or if the answer is not a string, ask again.
+    while (!destination || destination === '') {
+        destination = prompt('No such place, try again')
+    }
+
+    // The function should return a different price depending on the location.
+    switch (destination) {
+        // “London”: 183$
+        case 'London':
+            return 183
+        // “Paris” : 220$
+        case 'Paris':
+            return 220
+    }
+    // All other destination : 300$
+    return 300
+}
+
+// Define a function called rentalCarCost().
+function rentalCarCost() {
+    // It should ask the user for the number of days they would like to rent the car.
+    let days = Number(prompt('For how many days would you like to rent a car?'))
+    // If the user doesn’t answer or if the answer is not a number, ask again.
+    while (isNaN(days) || days === 0) {
+        days = Number(prompt('Write a number of days'))
+    }
+    // Calculate the cost to rent the car. The car costs $40 everyday.
+    let cost = days * 40
+    // If the user rents a car for more than 10 days, they get a 5% discount.
+    if (days > 10) {
+        cost *= 0.95
+    }
+    // The function should return the total price of the car rental.
+    return cost
+}
+
+// Define a function called totalVacationCost()
+// that returns the total cost of the user’s vacation by calling the 3 functions that you created above.
+function totalVacationCost() {
+    console.log(`The car cost: $${hotelCost()}, the hotel cost: $${planeRideCost()}, the plane tickets cost: $${rentalCarCost()}.`)
+}
+
+totalVacationCost()
+
+// Bonus: Instead of using a prompt inside the 3 first functions, only use a prompt inside the totalVacationCost() function.
+// You need to change the 3 first functions, accordingly.
