@@ -10,18 +10,24 @@ function wordsInTheStars() {
         wordsInput = prompt('Write at least one word')
     }
     const words = wordsInput.split(',')
+
+    // trimming words of whitespaces
     for (const i in words) {
         words[i] = words[i].trim()
     }
 
-    const maxLength = words.map(x => {return x.length}).sort().pop() // [-1] doesn't work for some reason
-    let result = ''
+    const maxLength = words.map(x => {
+        return x.length
+    }).sort().pop()
 
+    let result = ''
     result += '*'.repeat(maxLength + 4) + '\n'
+
     for (const word of words) {
         const wsLength = maxLength - word.length
         result += `* ${word} ${' '.repeat(wsLength)}*\n`
     }
+
     result += '*'.repeat(maxLength + 4)
 
     console.log(result)
