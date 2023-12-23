@@ -53,3 +53,25 @@ function calculateTip() {
 
 // Call the calculateTip() function.
 calculateTip()
+
+
+// 🌟 Exercise 3 : Find The Numbers Divisible By 23
+
+// Create a function call isDivisible() that takes no parameter.
+// Bonus: Add a parameter divisor to the function.
+function isDivisible(divisor) {
+    // In the function, loop through numbers 0 to 500.
+    let sum = 0
+    for (let i = 0; i <= 500; i++) {
+        // Console.log all the numbers divisible by divisor.
+        if (i % divisor === 0) {
+            console.log(i)
+            sum += i
+        }
+    }
+    // At the end, console.log the sum of all numbers that are divisible by 23.
+    console.log(sum)
+}
+
+isDivisible(23)
+
