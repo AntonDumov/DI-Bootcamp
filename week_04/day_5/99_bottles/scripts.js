@@ -7,6 +7,8 @@ let sub_n = 1
 while (n > 0) {
     console.log(`${n} bottles of beer`)
     n = n - sub_n
+    // For 1 bottle, you pass “it” around.
+    // For more than one bottle, you pass “them” around.
     console.log(`Take ${sub_n} down, pass ${sub_n !== 1 ? 'them' : 'it'} around`)
     console.log(`${n} bottles of beer on the wall\n`)
     sub_n += 1
@@ -15,4 +17,5 @@ while (n > 0) {
     }
 }
 
+// The song should end with “0 bottle of beer on the wall” or “no bottle of beer on the wall”.
 console.log('0 bottle of beer on the wall')
