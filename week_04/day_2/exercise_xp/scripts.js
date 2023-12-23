@@ -19,8 +19,37 @@ function infoAboutPerson(personName, personAge, personFavoriteColor) {
     // (ie. “You name is …, you are .. years old, your favorite color is …”)
     console.log(`Your name is ${personName}, you are ${personAge} years old, your favorite color is ${personFavoriteColor}`)
 }
+
 // Call the function twice with the following arguments:
 infoAboutPerson("David", 45, "blue")
 infoAboutPerson("Josh", 12, "yellow")
 
 
+// 🌟 Exercise 2 : Tips
+
+// John created a simple tip calculator to help calculate how much
+// to tip when he and his family go to restaurants.
+
+// Create a function named calculateTip() that takes no parameter.
+function calculateTip() {
+    // Inside the function, use prompt to ask John for the amount of the bill.
+    const billAmount = Number(prompt("Bill amount:"))
+
+    // Here are the rules
+    let tip
+    if (billAmount < 50) {
+        // If the bill is less than $50, tip 20%.
+        tip = billAmount * 0.2
+    } else if (billAmount < 200) {
+        // If the bill is between $50 and $200, tip 15%.
+        tip = billAmount * 0.15
+    } else {
+        // If the bill is more than $200, tip 10%.
+        tip = billAmount * 0.1
+    }
+    // Console.log the tip amount and the final bill (bill + tip).
+    console.log(billAmount + tip)
+}
+
+// Call the calculateTip() function.
+calculateTip()
