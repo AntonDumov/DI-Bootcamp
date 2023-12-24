@@ -34,7 +34,7 @@ document.querySelector('h3').addEventListener('click', event => {
 })
 
 // Add a <button> to the HTML file, that when clicked on, should make the text of all the paragraphs, bold.
-document.querySelector('#boldButton').addEventListener('click', e => {
+document.querySelector('#boldButton').addEventListener('click', () => {
     document.querySelectorAll('article > p').forEach(p => {
         p.style.fontWeight = 'bold'
     })
@@ -53,4 +53,66 @@ p2nd.addEventListener('mouseover', event => {
 })
 p2nd.addEventListener('mouseout', event => {
     event.target.style.opacity = '100%'
+})
+
+
+// 🌟 Exercise 2 : Work With Forms
+// Instructions
+// Copy the code below, into a structured HTML file:
+//
+//     <form>
+//         <label for="fname">First name:</label><br>
+//         <input type="text" id="fname" name="firstname"><br>
+//         <label for="lname">Last name:</label><br>
+//         <input type="text" id="lname" name="lastname"><br><br>
+//         <input type="submit" value="Submit" id="submit">
+//     </form>
+// <ul class="usersAnswer"></ul>
+
+
+// Retrieve the form and console.log it.
+const form = document.querySelector('form')
+console.log(form)
+
+// Retrieve the inputs by their id and console.log them.
+const inputFName = document.querySelector('#fname')
+const inputLName = document.querySelector('#lname')
+console.log(inputFName, inputLName)
+
+// Retrieve the inputs by their name attribute and console.log them.
+console.log(
+    document.getElementsByName('fname'),
+    document.getElementsByName('lname')
+)
+
+// When the user submits the form (ie. submit event listener)
+// use event.preventDefault(), why ?
+// get the values of the input tags,
+// make sure that they are not empty,
+// create a li per input value,
+// then append them to the <ul class="usersAnswer"></ul>, below the form.
+// The output should be :
+//
+// <ul class="usersAnswer">
+//     <li>first name of the user</li>
+//     <li>last name of the user</li>
+// </ul>
+
+form.addEventListener('submit', ev => {
+    ev.preventDefault() // to stop form from making a request to the server,
+                        // we can also achieve it by setting type attribute of the button to "button"
+    const firstName = inputFName.value
+    const lastName = inputLName.value
+    if (firstName === '' || lastName === '') {
+        form.setCustomValidity('Please, fill the first and the last names.')
+    } else {
+        const ul = document.createElement('ul')
+        ul.classList.add('usersAnswer')
+        for (const name of [firstName, lastName]) {
+            const li = document.createElement('li')
+            li.textContent = name
+            ul.appendChild(li)
+        }
+        form.insertAdjacentElement('afterend', ul)
+    }
 })
