@@ -23,7 +23,7 @@ function validate(value) {
     }
 }
 
-inputRadius.addEventListener('input', evt => {
+inputRadius.addEventListener('input', () => {
     const radius = Number(inputRadius.value)
     validate(radius)
 })

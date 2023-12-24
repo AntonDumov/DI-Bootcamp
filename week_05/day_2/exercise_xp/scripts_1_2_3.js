@@ -98,14 +98,36 @@ console.log(
 //     <li>last name of the user</li>
 // </ul>
 
+function validateFLNames () {
+    if (inputFName.value === '') {
+        inputFName.setCustomValidity('Please, fill the first name')
+        return false
+    } else {
+        inputFName.setCustomValidity('')
+    }
+    if (inputLName.value === '') {
+        inputLName.setCustomValidity('Please, fill the last name')
+        return false
+    } else {
+        inputLName.setCustomValidity('')
+    }
+    return true
+}
+
+inputFName.addEventListener('input', () => {
+    validateFLNames()
+})
+
+inputLName.addEventListener('input', () => {
+    validateFLNames()
+})
+
 form.addEventListener('submit', ev => {
     ev.preventDefault() // to stop form from making a request to the server,
                         // we can also achieve it by setting type attribute of the button to "button"
     const firstName = inputFName.value
     const lastName = inputLName.value
-    if (firstName === '' || lastName === '') {
-        form.setCustomValidity('Please, fill the first and the last names.')
-    } else {
+    if (validateFLNames()) {
         const ul = document.createElement('ul')
         ul.classList.add('usersAnswer')
         for (const name of [firstName, lastName]) {
@@ -155,10 +177,10 @@ function returnItemsToDefault() {
 // and the function returnItemsToDefault() on mouseout (ie. when the mouse pointer is moved out of the paragraph).
 // Look at this example
 const p = document.querySelector('p#exercise3')
-p.addEventListener('mouseover', ev => {
+p.addEventListener('mouseover', () => {
     getBoldItems()
     highlight()
 })
-p.addEventListener('mouseout', ev => {
+p.addEventListener('mouseout', () => {
     returnItemsToDefault()
 })
