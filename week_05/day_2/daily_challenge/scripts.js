@@ -19,6 +19,10 @@ const inputs = [
     inputNoun, inputAdjective, inputPerson, inputVerb, inputPlace
 ]
 
+function getFormValues() {
+    return inputs.map(i => {return i.value})
+}
+
 // Make sure the values are not empty
 for (const input of inputs) {
     input.addEventListener('input', () => {
@@ -43,7 +47,7 @@ function generateStory(noun, adjective, person, verb, place) {
     const stories = [
         `${person} went to ${place} to ${verb} a ${adjective} ${noun}.`,
         `In ${place}, ${person} found the ${adjective} ${noun} and decided to ${verb} it.`,
-        `${adjective} ${person} always wanted to ${verb} the ${noun} in ${place}.`
+        `${person} always wanted to ${verb} the ${adjective} ${noun} in ${place}.`
     ]
     return stories[Math.floor(Math.random() * stories.length)]
 }
@@ -52,13 +56,7 @@ function generateStory(noun, adjective, person, verb, place) {
 form.addEventListener('submit', ev => {
     ev.preventDefault();
     if (is_valid()) {
-        document.getElementById('story').textContent = generateStory(
-            inputNoun.value,
-            inputAdjective.value,
-            inputPerson.value,
-            inputVerb.value,
-            inputPlace.value,
-        )
+        document.getElementById('story').textContent = generateStory(...getFormValues())
     }
 })
 
@@ -70,11 +68,7 @@ form.addEventListener('submit', ev => {
 // Display the stories randomly.
 function shuffle() {
     if (is_valid()) {
-        const values = [inputNoun.value,
-            inputAdjective.value,
-            inputPerson.value,
-            inputVerb.value,
-            inputPlace.value]
+        const values = getFormValues()
         for (let i = values.length - 1; i > 0; i--) {
             const randomIndex = Math.floor(Math.random() * (i + 1))
             const temp = values[i]
