@@ -14,7 +14,7 @@ for (const color of colors) {
     newColorElement.classList.add('color')
     newColorElement.style.backgroundColor = color
     colorsContainer.appendChild(newColorElement)
-    newColorElement.addEventListener('click', ev => {
+    newColorElement.addEventListener('click', () => {
         chosenColor = color
     })
 }
@@ -33,13 +33,13 @@ for (let x = 0; x < drawAreaResolution[0]; x++) {
         drawAreaContainer.appendChild(newPixel)
         pixels.push(newPixel)
 
-        newPixel.addEventListener('mousedown', ev => {
+        newPixel.addEventListener('mousedown', () => {
             mousedown = true
             if (chosenColor !== null) {
                 newPixel.style.backgroundColor = chosenColor
             }
         })
-        newPixel.addEventListener('mouseover', ev => {
+        newPixel.addEventListener('mouseover', () => {
             if (chosenColor !== null && mousedown) {
                 newPixel.style.backgroundColor = chosenColor
             }
@@ -48,11 +48,11 @@ for (let x = 0; x < drawAreaResolution[0]; x++) {
     }
 }
 
-document.body.addEventListener('mouseup', ev => {
+document.body.addEventListener('mouseup', () => {
     mousedown = false
 })
 
-document.querySelector('#clearButton').addEventListener('click', evt => {
+document.querySelector('#clearButton').addEventListener('click', () => {
     for (const pixelEl of pixels) {
         pixelEl.style.backgroundColor = ''
     }
