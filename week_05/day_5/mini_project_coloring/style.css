@@ -1,0 +1,37 @@
+.container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 1fr 3fr;
+}
+
+.tool-panel {
+    grid-column: 1/2;
+    background-color: #b8b8b8;
+    padding: 5px;
+}
+
+.draw-area {
+    grid-column: 2/3;
+    display: grid;
+}
+
+.draw-area-pixel {
+    border: solid #a0a0a0 1px;
+}
+
+.colors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-top: 10px;
+}
+
+.color {
+    width: 100%;
+    height: 50px; /* Adjust the height as needed */
+}
+
+#clearButton {
+    width: 100%;
+    height: 50px;
+}
