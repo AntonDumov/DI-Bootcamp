@@ -15,7 +15,7 @@ addTask = function () {
         const taskDiv = document.createElement('div')
         taskDiv.dataset['taskId'] = newTask.taskId
         taskDiv.classList.add('task')
-        taskDiv.innerHTML = `<button>X</button><input type="checkbox"><span class="task-text">${newTask.text}</span>`
+        taskDiv.innerHTML = `<button><i class="fa fa-times" aria-hidden="true"></i></button><input type="checkbox"><span class="task-text">${newTask.text}</span>`
 
         tasksContainer.appendChild(taskDiv)
 
@@ -28,17 +28,19 @@ addTask = function () {
 }
 
 doneTask = function (ev) {
-    const taskId = parseInt(ev.target.parentElement.dataset['taskId'])
+    const taskElement = ev.target.closest('.task');
+    const taskId = parseInt(taskElement.dataset['taskId'])
     tasks.find(task => task.taskId === taskId).done = true;
-    ev.target.parentElement.classList.add('task-done')
+    taskElement.classList.add('task-done')
     ev.target.disabled = true
 }
 
 deleteTask = function (ev) {
-    const taskId = parseInt(ev.target.parentElement.dataset['taskId'])
+    const taskElement = ev.target.closest('.task');
+    const taskId = parseInt(taskElement.dataset['taskId'])
     tasks.splice(tasks.findIndex(task => task.taskId === taskId), 1)
 
-    ev.target.parentElement.remove()
+    taskElement.remove()
 }
 
 addTaskButton.addEventListener('click', addTask)
