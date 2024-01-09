@@ -46,7 +46,7 @@ VALUES
 	('Sandra', 'Jones'),
 	('Scott', 'Scott'),
 	('Trevor', 'Green'),
-	('Malanie', 'Johnson')
+	('Malanie', 'Johnson');
 
 -- Use SQL to fetch the following data from the database:
 
