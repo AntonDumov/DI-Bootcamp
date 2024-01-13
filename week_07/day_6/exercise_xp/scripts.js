@@ -136,16 +136,55 @@ const isString = (value) => {
 // Instructions
 // Using this array :
 //
+// const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+// // Write a JavaScript program that displays the colors in the following order :
+// // “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
+// colors.forEach((c, i) => {
+//     console.log(`${i+1}# choice is ${c}.`)
+// })
+//
+// // Check if at least one element of the array is equal to the value “Violet”.
+// colors.some(c => {return c === 'Violet'}) ? console.log('Yeah') : console.log('No...')
+// // If yes, console.log("Yeah"), else console.log("No...")
+// // Hint : Use the array methods taught in class. Look at the lesson Array Methods.
+
+// 🌟 Exercise 5 : Colors #2
+// Instructions
+// Using these arrays :
+//
 const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th", "st", "nd", "rd"];
 // Write a JavaScript program that displays the colors in the following order :
-// “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
+// “1st choice is Blue .” “2nd choice is Green.” “3rd choice is Red.” ect…
+// Hint : Use the array methods taught in class and ternary operator.
+
 colors.forEach((c, i) => {
-    console.log(`${i+1}# choice is ${c}.`)
+    let n = i + 1
+    let suffix = (n) < 4 ? ordinal[n] : ordinal[0]
+    console.log(`${n}${suffix} choice is ${c}.`)
 })
 
-// Check if at least one element of the array is equal to the value “Violet”.
-colors.some(c => {return c === 'Violet'}) ? console.log('Yeah') : console.log('No...')
-// If yes, console.log("Yeah"), else console.log("No...")
-// Hint : Use the array methods taught in class. Look at the lesson Array Methods.
+// Exercise 6 : Bank Details
+// Instructions
+// In this exercise, you have to decide which type of variables you have to use (ie. let or const):
+//
+// Create a global variable called bankAmount which value is the amount of money currently in your account.
+let bankAmount = 1000;
+// Create a variable that saves the % amount of VAT (In Israel, it’s 17%).
+const VAT = 0.17;
+// Create an array with all your monthly expenses, both positive and negative (money made and money spent).
+const expenses = ["+200", "-100", "+146", "+167", "-2900"]
+// Example : const details = ["+200", "-100", "+146", "+167", "-2900"]
+// Create a program that modifies the expenses (ie. the positive AND the negative expenses)
+// so that they will include taxes (multiply each expense by the VAT).
 
+expenses.forEach((amount, i)=> {
+    expenses[i] = parseInt(amount)
+    expenses[i] = amount * (1 + VAT)
+})
 
+// Display your current bankAccount standing at the end of the month.
+expenses.forEach((amount, i) => {
+    bankAmount += amount;
+})
+console.log(bankAmount)
