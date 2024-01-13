@@ -95,3 +95,25 @@
 // #5.2 What will happen if the variable is declared
 // with const instead of let ?
 // A: variables in different scopes, so nothing
+
+
+// 🌟 Exercise 2 : Ternary Operator
+// Instructions
+// Using the code below:
+//
+//     function winBattle(){
+//         return true;
+//     }
+// Transform the winBattle() function to an arrow function.
+const winBattle = () => {
+    return true;
+}
+
+// Create a variable called experiencePoints.
+let experiencePoints;
+// Assign to this variable, a ternary operator.
+// If winBattle() is true, the experiencePoints variable should be equal to 10, else the variable should be equal to 1.
+// Console.log the experiencePoints variable.
+experiencePoints = winBattle() ? experiencePoints = 10 : experiencePoints = 1;
+console.log(experiencePoints)
+
