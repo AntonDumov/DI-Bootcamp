@@ -179,8 +179,7 @@ const expenses = ["+200", "-100", "+146", "+167", "-2900"]
 // so that they will include taxes (multiply each expense by the VAT).
 
 expenses.forEach((amount, i)=> {
-    expenses[i] = parseInt(amount)
-    expenses[i] = amount * (1 + VAT)
+    expenses[i] = parseInt(amount) * (1 + VAT)
 })
 
 // Display your current bankAccount standing at the end of the month.
