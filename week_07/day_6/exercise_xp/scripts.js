@@ -175,6 +175,7 @@ const VAT = 0.17;
 // Create an array with all your monthly expenses, both positive and negative (money made and money spent).
 const expenses = ["+200", "-100", "+146", "+167", "-2900"]
 // Example : const details = ["+200", "-100", "+146", "+167", "-2900"]
+
 // Create a program that modifies the expenses (ie. the positive AND the negative expenses)
 // so that they will include taxes (multiply each expense by the VAT).
 
