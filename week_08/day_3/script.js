@@ -31,27 +31,45 @@
 //     arr.filter(o => o.name.toLowerCase().includes('o'))
 // )
 
-let employees = [
-    {
-        firstName: 'John',
-        lastName: 'Doe',
-        age: 27,
-        joinedDate: 'December 15, 2017'
-    },
+// let employees = [
+//     {
+//         firstName: 'John',
+//         lastName: 'Doe',
+//         age: 27,
+//         joinedDate: 'December 15, 2017'
+//     },
+//
+//     {
+//         firstName: 'Ana',
+//         lastName: 'Rosy',
+//         age: 25,
+//         joinedDate: 'January 15, 2019'
+//     },
+//
+//     {
+//         firstName: 'Zion',
+//         lastName: 'Albert',
+//         age: 30,
+//         joinedDate: 'February 15, 2011'
+//     }
+// ];
+//
+// console.log(employees.filter(e => e.age > 26))
 
-    {
-        firstName: 'Ana',
-        lastName: 'Rosy',
-        age: 25,
-        joinedDate: 'January 15, 2019'
-    },
+/**  Exercise
+ * Create an function that get an array of Numbers as input
+ * and return the sum of all numbers
+ * For example:
+ * Give this array [2, 5, 10,100]
+ * result 117
+ */
 
-    {
-        firstName: 'Zion',
-        lastName: 'Albert',
-        age: 30,
-        joinedDate: 'February 15, 2011'
+const sum = arr => {
+    let result = 0
+    for (const element of arr) {
+        result += element
     }
-];
+    return result
+}
 
-console.log(employees.filter(e => e.age > 26))
+console.log(sum([2, 5, 10,100]))
