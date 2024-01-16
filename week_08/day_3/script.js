@@ -54,4 +54,4 @@ let employees = [
     }
 ];
 
-console.log(employees.filter(e => e.age > 27))
+console.log(employees.filter(e => e.age > 26))
