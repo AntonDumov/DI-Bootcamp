@@ -1,0 +1,39 @@
+body {
+    background-color: #b09e99;
+    padding: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    padding: 1em;
+    background-color: #d8cfcc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    max-width: 500px;
+
+}
+.quote-container {
+    color: #6c757d;
+    padding: 0 1em 0 1em;
+}
+
+.quote-text {
+    font-size: 2em;
+}
+
+.quote-author {
+    text-align: right;
+    color: #70bdbf;
+    font-size: 1.5em;
+}
+
+#generateQuoteButton {
+    background-color: #64b6ac;
+    color: #fcfffe;
+    font-size: 2em;
+    max-width: 250px;
+    margin-bottom: 1em;
+}
