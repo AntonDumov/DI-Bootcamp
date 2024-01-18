@@ -24,6 +24,7 @@ const addNewQuote = (quote, author) => {
         quote: quote,
         author: author
     })
+    renderQuote(getQuoteById(lastId))
 }
 
 document.querySelector('#newQuoteForm').addEventListener('submit', ev => {
