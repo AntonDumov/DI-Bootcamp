@@ -18,7 +18,22 @@
             <div class="quote-author"></div>
         </div>
     </div>
+    <div class="container">
+        <button class="action-buttons" type="button" id="getLengthButton">Numbers of Characters</button>
+        <button class="action-buttons" type="button" id="getLengthWOSpaceButton">Numbers of Characters w/o Spaces</button>
+        <button class="action-buttons" type="button" id="getWordsNumberButton">Number of Words</button>
+        <button class="action-buttons" type="button" id="likeQuoteButton">Like!</button>
+        <div class="result" id="result"></div>
+    </div>
+    <div class="container">
+        <form id="newQuoteForm">
+            <label for="inputQuote">Quote: </label><input type="text" name="quote" id="inputQuote">
+            <label for="inputAuthor">Author: </label><input type="text" name="author" id="inputAuthor">
+            <button type="submit">Add Quote</button>
+        </form>
+    </div>
 </section>
+<script src="quotes.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

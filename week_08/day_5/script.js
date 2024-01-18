@@ -1,51 +1,3 @@
-const quotes = [
-    {
-        id: 0,
-        author: 'Albert Einstein',
-        quote: 'As far as the laws of mathematics refer to reality, they are not certain; and as far as they are certain, they do not refer to reality.'
-    },
-    {
-        id: 1,
-        author: 'Albert Einstein',
-        quote: 'Every day I remind myself that my inner and outer life are based on the labors of other men, living and dead, and that I must exert myself in order to give in the same measure as I have received and am still receiving.'
-    },
-    {
-        id: 2,
-        author: 'Albert Einstein',
-        quote: 'Gravitation cannot be held responsible for people falling in love. How on earth can you explain in terms of chemistry and physics so important a biological phenomenon as first love? Put your hand on a stove for a minute and it seems like an hour. Sit with that special girl for an hour and it seems like a minute. That\'s relativity.'
-    },
-    {
-        id: 3,
-        author: 'Albert Einstein',
-        quote: 'Only two things are infinite, the universe and human stupidity, and I\'m not sure about the former.'
-    },
-    {
-        id: 4,
-        author: 'Albert Einstein',
-        quote: 'I know not with what weapons World War III will be fought, but World War IV will be fought with sticks and stones.'
-    },
-    {
-        id: 5,
-        author: 'Albert Einstein',
-        quote: 'The hardest thing in the world to understand is the income tax.'
-    },
-    {
-        id: 6,
-        author: 'Albert Einstein',
-        quote: 'The release of atomic energy has not created a new problem. It has merely made more urgent the necessity of solving an existing one.'
-    },
-    {
-        id: 7,
-        author: 'Albert Einstein',
-        quote: 'We should take care not to make the intellect our god; it has, of course, powerful muscles, but no personality.'
-    },
-    {
-        id: 8,
-        author: 'Albert Einstein',
-        quote: 'The important thing is not to stop questioning.'
-    },
-]
-
 const getRandomQuote = (lastId = null) => {
     let chosenQuote = quotes[Math.floor(Math.random() * quotes.length)]
     return chosenQuote.id === lastId ? getRandomQuote(lastId) : chosenQuote;
@@ -57,6 +9,78 @@ const renderQuote = quote => {
     document.querySelector('.quote-container').dataset.quoteId = quote.id
 }
 
+const getCurrentQuoteId = () => {
+    return parseInt(document.querySelector('.quote-container').dataset.quoteId)
+}
+
 document.querySelector('#generateQuoteButton').addEventListener('click', (ev) => {
-    renderQuote(getRandomQuote(parseInt(document.querySelector('.quote-container').dataset.quoteId)))
+    renderQuote(getRandomQuote(getCurrentQuoteId()))
+})
+
+const addNewQuote = (quote, author) => {
+    lastId++
+    quotes.push({
+        id: lastId,
+        quote: quote,
+        author: author
+    })
+}
+
+document.querySelector('#newQuoteForm').addEventListener('submit', ev => {
+    ev.preventDefault();
+    addNewQuote(
+        ev.target[0].value, ev.target[1].value
+    )
+})
+
+const getQuoteById = id => {
+    return quotes.find(quote => quote.id === id)
+}
+
+const getQuoteLength = id => {
+    return getQuoteById(id).quote.length
+}
+
+const getQuoteLengthWOSpace = id => {
+    return getQuoteById(id).quote.replace(/\s/g, '').length
+}
+
+const getQuiteWordsNumber = id => {
+    return getQuoteById(id).quote.trim().split(/\s+/g).length
+}
+
+const likeQuote = id => {
+    const quote = getQuoteById(id)
+    if (typeof quote.likes === "undefined") {
+        quote.likes = 0
+    }
+    quote.likes++
+    return quote.likes
+}
+
+const displayResult = text => {
+    document.querySelector('#result').innerText = text
+}
+
+document.getElementById('getLengthButton').addEventListener('click', ev => {
+    displayResult(
+        getQuoteLength(getCurrentQuoteId())
+    )
+})
+
+document.getElementById('getLengthWOSpaceButton').addEventListener('click', ev => {
+    displayResult(
+        getQuoteLengthWOSpace(getCurrentQuoteId())
+    )
+})
+
+document.getElementById('getWordsNumberButton').addEventListener('click', ev=> {
+    displayResult(
+        getQuiteWordsNumber(getCurrentQuoteId())
+    )
+})
+
+document.getElementById('likeQuoteButton').addEventListener('click', ev => {
+
+    displayResult(`Likes: ${likeQuote(getCurrentQuoteId())}`)
 })
