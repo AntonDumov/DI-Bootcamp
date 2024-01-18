@@ -84,3 +84,46 @@ document.getElementById('likeQuoteButton').addEventListener('click', ev => {
 
     displayResult(`Likes: ${likeQuote(getCurrentQuoteId())}`)
 })
+
+let filteredQuotes = []
+let currentPosition = undefined
+const filterByAuthor = query => {
+    filteredQuotes = quotes.filter(quote => quote.author.toLowerCase().includes(query.toLowerCase())).map(q => q.id)
+    currentPosition = undefined
+}
+
+document.getElementById('filterQuoteForm').addEventListener('submit', ev => {
+    ev.preventDefault();
+    filterByAuthor(ev.target[0].value)
+    ev.target[0].value = filteredQuotes.length
+})
+
+const navigateFilteredQuotes = direction => {
+    if (filteredQuotes.length) {
+        if (currentPosition === undefined) {
+            currentPosition = 0
+        } else {
+            if (direction === '+'){
+                currentPosition++
+            } else {
+                currentPosition--
+            }
+        }
+        if (currentPosition > filteredQuotes.length - 1) {
+            currentPosition = 0
+        } else if (
+            currentPosition < 0
+        ) {
+            currentPosition = filteredQuotes.length - 1
+        }
+        renderQuote(getQuoteById(filteredQuotes[currentPosition]))
+    }
+}
+
+document.getElementById('nextQuote').addEventListener('click', () => {
+    navigateFilteredQuotes('+')
+})
+
+document.getElementById('previousQuote').addEventListener('click', () => {
+    navigateFilteredQuotes('-')
+})
