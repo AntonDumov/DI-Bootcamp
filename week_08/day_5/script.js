@@ -13,7 +13,7 @@ const getCurrentQuoteId = () => {
     return parseInt(document.querySelector('.quote-container').dataset.quoteId)
 }
 
-document.querySelector('#generateQuoteButton').addEventListener('click', (ev) => {
+document.querySelector('#generateQuoteButton').addEventListener('click', () => {
     renderQuote(getRandomQuote(getCurrentQuoteId()))
 })
 
@@ -62,25 +62,25 @@ const displayResult = text => {
     document.querySelector('#result').innerText = text
 }
 
-document.getElementById('getLengthButton').addEventListener('click', ev => {
+document.getElementById('getLengthButton').addEventListener('click', () => {
     displayResult(
         getQuoteLength(getCurrentQuoteId())
     )
 })
 
-document.getElementById('getLengthWOSpaceButton').addEventListener('click', ev => {
+document.getElementById('getLengthWOSpaceButton').addEventListener('click', () => {
     displayResult(
         getQuoteLengthWOSpace(getCurrentQuoteId())
     )
 })
 
-document.getElementById('getWordsNumberButton').addEventListener('click', ev=> {
+document.getElementById('getWordsNumberButton').addEventListener('click', ()=> {
     displayResult(
         getQuiteWordsNumber(getCurrentQuoteId())
     )
 })
 
-document.getElementById('likeQuoteButton').addEventListener('click', ev => {
+document.getElementById('likeQuoteButton').addEventListener('click', () => {
 
     displayResult(`Likes: ${likeQuote(getCurrentQuoteId())}`)
 })
