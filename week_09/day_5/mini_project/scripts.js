@@ -1,9 +1,9 @@
 const getRobotCardHTML = (robotName, robotEmail, robotAvatar) =>{
-    return `<div class='card'>
-        <div class='avatar'><img src='${robotAvatar}' alt="${robotName}"></div>
+    return `<div class='card'><div class="card-container">
+        <div class="avatar"><img src="${robotAvatar}' alt="${robotName}"></div>
         <div class='name'>${robotName}</div>
         <div class='email'>${robotEmail}</div>
-    </div>`
+    </div></div>`
 }
 
 const findRobots = query => {
