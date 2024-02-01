@@ -58,7 +58,7 @@ const findSomeone = async () => {
         personData.properties.homeworld = await getHomeWorldName(planetId);
         setResult(htmlTemplate(personData.properties));
     } catch (error) {
-        setResult(`<div>${error.toString().replace('\n', '<br>')}</div>`);
+        setResult(`<div>Oh No! That person isn't available.<br>${error.toString().replace('\n', '<br>')}</div>`);
     } finally {
         setLoadingState(false);
     }
