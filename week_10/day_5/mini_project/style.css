@@ -23,11 +23,14 @@ body {
 }
 
 .data {
+    background-color: #060039e0;
     width: 100%;
     border: solid #ffeb3b;
     border-radius: 20px;
     min-height: 10em;
     margin-bottom: 1em;
+    padding: 0.5em;
+    text-align: center;
 }
 
 .initial-data {
@@ -41,10 +44,15 @@ button {
     border-radius: 8px;
     color: #b8b8b8;
     font-size: 18px;
+    padding: 0.4em;
 }
 
 button:active {
     border-color: black;
     background-color: #ffeb3b;
     color: black;
+}
+
+.loading-hidden, .result-hidden {
+    display: none;
 }
