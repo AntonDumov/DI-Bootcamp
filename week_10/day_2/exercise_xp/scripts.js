@@ -42,6 +42,3 @@ const autoResolve = new Promise(resolve => {
 
 const resolvedPromise = Promise.resolve(3);
 const rejectedPromise = Promise.reject("Boo!");
-
-// Exercise 4: Quizz - Not Mandatory
-// Follow this tutorial and do the quizz until the page called “a few tricks with promises”.
