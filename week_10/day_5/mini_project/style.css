@@ -1,0 +1,50 @@
+body {
+    background-image: url("background_img.webp");
+    background-repeat: repeat;
+    color: #b8b8b8;
+    font-size: 22px;
+}
+
+.container {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 20%;
+    }
+}
+
+.logo {
+    width: 100%;
+}
+
+.data {
+    width: 100%;
+    border: solid #ffeb3b;
+    border-radius: 20px;
+    min-height: 10em;
+    margin-bottom: 1em;
+}
+
+.initial-data {
+    text-align: center;
+}
+
+button {
+    cursor: pointer;
+    background-color: black;
+    border: solid #ffeb3b;
+    border-radius: 8px;
+    color: #b8b8b8;
+    font-size: 18px;
+}
+
+button:active {
+    border-color: black;
+    background-color: #ffeb3b;
+    color: black;
+}
