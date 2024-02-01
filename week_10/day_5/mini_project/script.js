@@ -1,3 +1,4 @@
+// Sets the loading state of the page.
 const setLoadingState = state => {
     if (state) {
         document.querySelector('.result').classList.add('result-hidden')
@@ -8,15 +9,18 @@ const setLoadingState = state => {
     }
 }
 
+// Sets the HTML content of the result element.
 const setResult = html => {
     document.querySelector('.result').innerHTML = html
     setLoadingState(false)
 }
 
+// Generates a random ID within range (1 to 83).
 const getRandomId = () => {
     return Math.floor(Math.random() * 82) + 1;
 }
 
+// Creates an HTML for displaying character data.
 const htmlTemplate = data => {
     return `<div><h3>${data.name}</h3></div>
 <div>Height: ${data.height}</div>
@@ -26,6 +30,7 @@ const htmlTemplate = data => {
 `
 }
 
+// Makes an API request and returns the data.
 const apiRequest = async (type, id) => {
     const response = await fetch(`https://www.swapi.tech/api/${type}/${id}/`);
     if (!response.ok) {
@@ -38,11 +43,13 @@ const apiRequest = async (type, id) => {
     return data.result;
 }
 
+// Retrieves the name of a planet based on its ID.
 const getHomeWorldName = async (id) => {
     const data = await apiRequest('planets', id);
     return data.properties.name;
 }
 
+// Finds and displays data about a random Star Wars character.
 const findSomeone = async () => {
     try {
         setLoadingState(true);
@@ -57,7 +64,9 @@ const findSomeone = async () => {
     }
 }
 
+// Event listener for page load.
 window.addEventListener('load', () => {
+    // Event listener for the button click to trigger the findSomeone function.
     document.querySelector('button').addEventListener('click', () => {
         findSomeone()
     })
