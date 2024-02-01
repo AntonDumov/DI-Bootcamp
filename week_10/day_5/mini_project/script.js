@@ -26,40 +26,35 @@ const htmlTemplate = data => {
 `
 }
 
-const apiRequest = (type, id) => {
-    return new Promise((resolve, reject) => {
-        fetch(`https://www.swapi.tech/api/${type}/${id}/`).then(r => {
-            r.json().then(data => {
-                if (data.message === 'ok') {
-                    resolve(data.result)
-                } else {
-                    reject(Error('Something went wrong!'))
-                }
-            })
-        })
-    })
+const apiRequest = async (type, id) => {
+    const response = await fetch(`https://www.swapi.tech/api/${type}/${id}/`);
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    if (data.message !== 'ok') {
+        throw new Error('Something went wrong!');
+    }
+    return data.result;
 }
 
-const getHomeWorldName = id => {
-    return new Promise(resolve => {
-        apiRequest('planets', id).then(data => {
-            resolve(data.properties.name)
-        })
-    })
+const getHomeWorldName = async (id) => {
+    const data = await apiRequest('planets', id);
+    return data.properties.name;
 }
 
-const findSomeone = () => {
-    setLoadingState(true)
-    apiRequest('people', getRandomId()).then(data => {
-        let planetId = data.properties.homeworld.split('/').pop()
-        getHomeWorldName(planetId).then(pName => {
-            data.properties.homeworld = pName
-            setResult(htmlTemplate(data.properties))
-        })
-    })
-        .catch(reason => {
-            setResult(`<div>${reason.toString()}</div>`)
-        })
+const findSomeone = async () => {
+    try {
+        setLoadingState(true);
+        const personData = await apiRequest('people', getRandomId());
+        const planetId = personData.properties.homeworld.split('/').pop();
+        personData.properties.homeworld = await getHomeWorldName(planetId);
+        setResult(htmlTemplate(personData.properties));
+    } catch (error) {
+        setResult(`<div>${error.toString()}</div>`);
+    } finally {
+        setLoadingState(false);
+    }
 }
 
 window.addEventListener('load', () => {
