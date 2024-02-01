@@ -33,7 +33,7 @@ const apiRequest = async (type, id) => {
     }
     const data = await response.json();
     if (data.message !== 'ok') {
-        throw new Error('Something went wrong!');
+        throw new Error(`Something went wrong!\n${data.message}`);
     }
     return data.result;
 }
@@ -51,7 +51,7 @@ const findSomeone = async () => {
         personData.properties.homeworld = await getHomeWorldName(planetId);
         setResult(htmlTemplate(personData.properties));
     } catch (error) {
-        setResult(`<div>${error.toString()}</div>`);
+        setResult(`<div>${error.toString().replace('\n', '<br>')}</div>`);
     } finally {
         setLoadingState(false);
     }
