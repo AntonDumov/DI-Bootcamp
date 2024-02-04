@@ -51,3 +51,98 @@ makeAllCaps(["apple", "pear", "banana", "melon", "kiwi"])
     .then((result) => console.log(result)) //["APPLE","BANANA", "KIWI", "MELON", "PEAR"]
     .catch(error => console.log(error))
 
+
+const morse = `{
+  "0": "-----",
+  "1": ".----",
+  "2": "..---",
+  "3": "...--",
+  "4": "....-",
+  "5": ".....",
+  "6": "-....",
+  "7": "--...",
+  "8": "---..",
+  "9": "----.",
+  "a": ".-",
+  "b": "-...",
+  "c": "-.-.",
+  "d": "-..",
+  "e": ".",
+  "f": "..-.",
+  "g": "--.",
+  "h": "....",
+  "i": "..",
+  "j": ".---",
+  "k": "-.-",
+  "l": ".-..",
+  "m": "--",
+  "n": "-.",
+  "o": "---",
+  "p": ".--.",
+  "q": "--.-",
+  "r": ".-.",
+  "s": "...",
+  "t": "-",
+  "u": "..-",
+  "v": "...-",
+  "w": ".--",
+  "x": "-..-",
+  "y": "-.--",
+  "z": "--..",
+  ".": ".-.-.-",
+  ",": "--..--",
+  "?": "..--..",
+  "!": "-.-.--",
+  "-": "-....-",
+  "/": "-..-.",
+  "@": ".--.-.",
+  "(": "-.--.",
+  ")": "-.--.-"
+}`
+
+// The first function is named toJs():
+// this function converts the morse json string provided above to a morse javascript object.
+// if the morse javascript object is empty, throw an error (use reject)
+// else return the morse javascript object (use resolve)
+
+const toJs = s => new Promise((resolve, reject) => {
+    const result = JSON.parse(s)
+    if (!result) {
+        reject('Result is empty!')
+    } else {
+        resolve(result)
+    }
+})
+
+// The second function called toMorse(morseJS), takes one argument: the new morse javascript object.
+
+// This function asks the user for a word or a sentence.
+// if the user entered a character that doesn’t exist in the new morse javascript object, throw an error. (use reject)
+// else return an array with the morse translation of the user’s word.
+// if the user enters the word "Hello", the promise resolves with this value ["....", ".", ".-..", ".-..","---"]
+// if the user entered the word "¡Hola!", the promise rejects because the character "¡" doesn't exist in the morse javascript object
+
+const toMorse = morseJs => {
+    const userString = window.prompt('Write the message:')
+    return new Promise((resolve, reject) => {
+        const result = []
+        for (const char of userString) {
+            if (char in morseJs) {
+                result.push(morseJs[char])
+            } else {
+                reject(`No ${char} in morseObject`)
+            }
+        }
+        resolve(result)
+    })
+}
+
+const joinWords = morseTranslation => {
+    document.querySelector('body').innerHTML += morseTranslation.join(' ')
+}
+
+toJs(morse).then(morseJs => {
+    toMorse(morseJs).then(morseTranslation => {
+        joinWords(morseTranslation)
+    })
+})
