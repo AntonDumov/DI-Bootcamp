@@ -1,0 +1,15 @@
+### get all books
+GET http://localhost:5000/api/books
+
+### add new book
+POST http://localhost:5000/api/books
+Content-Type: application/json
+
+{
+  "title": "The Catcher in the Rye",
+  "author": "J.D. Salinger",
+  "publishedYear": 1951
+}
+
+### get book with id 3
+GET http://localhost:5000/api/books/3

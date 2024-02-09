@@ -1,0 +1,27 @@
+### get the init post
+@id = 0
+GET http://localhost:3000/posts/{{id}}
+
+### post a new post
+POST http://localhost:3000/posts
+Content-Type: application/json
+
+{
+  "title": "My new post",
+  "content": "My new content"
+}
+
+### get all posts
+GET http://localhost:3000/posts
+
+### modify the init post
+PUT http://localhost:3000/posts/0
+Content-Type: application/json
+
+{
+  "title": "Changed Init POst",
+  "content": "Changed init post content."
+}
+
+### delete the new post
+DELETE http://localhost:3000/posts/1

@@ -2,8 +2,15 @@ const express = require('express');
 
 const app = express();
 const port = 3000;
+app.use(express.json());
 
-const data = [];
+const data = [
+    {
+        id: 0,
+        title: 'Init Post',
+        content: 'This is the first post created automatically.'
+    }
+];
 let last_id = 0;
 
 app.get('/', (req, res) => {
@@ -19,7 +26,7 @@ app.get('/posts/:id', (req, res) => {
 });
 
 app.post('/posts', (req, res) => {
-    const newPost = JSON.parse(req.body);
+    const newPost = req.body;
     newPost.id = last_id;
     last_id++;
     data.push(newPost);
@@ -27,7 +34,7 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts/:id', (req, res) => {
-    data[req.params.id] = JSON.parse(req.body);
+    data[req.params.id] = req.body;
     res.sendStatus(200);
 });
 
