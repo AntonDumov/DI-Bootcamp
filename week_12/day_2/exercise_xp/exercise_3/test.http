@@ -1,0 +1,22 @@
+### Get all books
+GET http://localhost:3001/books
+
+### Create a new book with a JSON request body
+POST http://localhost:3001/books
+Content-Type: application/json
+
+{
+  "title": "Harry Potter",
+  "author": "J.K. Rowling"
+}
+
+### Update a book by ID with a JSON request body
+PUT http://localhost:3001/books/0/
+Content-Type: application/json
+
+{
+  "title": "Harry Potter and the Philosopher's Stone"
+}
+
+### Delete a book by ID
+DELETE http://localhost:3001/books/0/
