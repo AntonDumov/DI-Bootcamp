@@ -11,10 +11,12 @@
       <schema-mapping>
         <introspection-scope>
           <node negative="1">
-            <node kind="database" negative="1" />
-            <node kind="database">
+            <node kind="database" negative="1">
               <name qname="dvdrental" />
               <name qname="postgres" />
+              <name name="bootcamp" />
+            </node>
+            <node kind="database" qname="postgres">
               <node kind="schema" qname="public" />
             </node>
           </node>
