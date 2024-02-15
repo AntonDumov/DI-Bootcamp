@@ -1,0 +1,26 @@
+###
+GET http://localhost:3001/tasks/
+
+###
+GET http://localhost:3001/tasks/1
+
+###
+POST http://localhost:3001/tasks/
+Content-Type: application/json
+
+{
+  "name": "task1",
+  "description": "description"
+}
+
+###
+DELETE http://localhost:3001/tasks/1
+
+###
+PUT http://localhost:3001/tasks/1
+Content-Type: application/json
+
+{
+  "name": "task2",
+  "description": "new description"
+}
