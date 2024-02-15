@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 
 const getData = async () => {
     try {
-        const file = await fs.readFile('config/db.json');
+        const file = await fs.readFile('config/tasks.json');
         return JSON.parse(file);
     } catch (e) {
         throw e;
@@ -10,7 +10,7 @@ const getData = async () => {
 };
 
 const saveData = (data) => {
-    return fs.writeFile('config/db.json', JSON.stringify(data));
+    return fs.writeFile('config/tasks.json', JSON.stringify(data));
 };
 
 const getNextID = (data) => {
@@ -27,6 +27,7 @@ export const _deleteTaskByID = (id) => {
         getData()
             .then(async data => {
                 const taskIndex = data.findIndex(task => task.id === id);
+                if (taskIndex === -1) resolve(null);
                 const task = data.splice(taskIndex, 1);
                 await saveData(data);
                 resolve(task[0]);
