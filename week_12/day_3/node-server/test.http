@@ -1,0 +1,14 @@
+###
+GET http://localhost:3001/api/products
+
+###
+GET http://localhost:3001/api/products/search?name=23
+
+###
+POST http://localhost:3001/api/products
+Content-Type: application/json
+
+{
+  "name": "Ipad",
+  "price": "5000"
+}
