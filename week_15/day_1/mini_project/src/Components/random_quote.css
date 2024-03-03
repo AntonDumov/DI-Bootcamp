@@ -1,6 +1,16 @@
+:root {
+    --background-color: #fff;
+    --quote-color: #515372;
+    --button-color: #515372;
+}
+
+body {
+    background-color: #174e63;
+}
+
 .random-quote-container {
-    background-color: #fff;
-    color: #515372;
+    background-color: var(--background-color);
+    color: var(--quote-color);
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -45,7 +55,7 @@
 
 .action > button {
     cursor: pointer;
-    background-color: #515372;
+    background-color: var(--button-color);
     color: #fff;
     border: solid #fff 1px;
     border-radius: 4px;
