@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Events = (props) => {
+const Events = () => {
     const clickMe = () => alert('I was clicked');
 
     const handleKeyDown = e => {
@@ -14,7 +14,6 @@ const Events = (props) => {
         } else {
             setToggle(true);
         }
-        ;
     };
 
     return <>
