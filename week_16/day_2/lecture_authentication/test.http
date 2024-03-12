@@ -1,0 +1,20 @@
+### creating new user
+POST http://localhost:3001/users/register/
+Content-Type: application/json
+
+{
+  "email": "anton.dumov@gmail.com",
+  "password": "1234"
+}
+
+### login as new user
+POST http://localhost:3001/users/login/
+Content-Type: application/json
+
+{
+  "email": "anton.dumov@gmail.com",
+  "password": "1234"
+}
+
+### get all users if
+GET http://localhost:3001/users/
