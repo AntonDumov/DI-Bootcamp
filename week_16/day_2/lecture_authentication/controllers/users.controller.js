@@ -62,3 +62,8 @@ export const _allUsers = async (req, res) => {
         return res.status(500).json({ msg: 'Internal server error' });
     }
 };
+
+export const _logout = (req, res) => {
+    res.clearCookie('token');
+    res.status(200).json({ msg: 'Logged out successfully' });
+};

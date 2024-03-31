@@ -18,3 +18,9 @@ Content-Type: application/json
 
 ### get all users if
 GET http://localhost:3001/users/
+
+### verify
+GET http://localhost:3001/users/verify/
+
+### logout
+GET http://localhost:3001/users/logout/
