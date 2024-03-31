@@ -7,6 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title></head>
 <body>
+<h1>Currency Converter</h1>
+<form id="form">
+    <label>From:
+        <select name="from">
+            <option value="0" selected disabled> -- Select Currency --</option>
+        </select>
+    </label><br>
+    <label>To:
+        <select name="to">
+            <option value="0" selected disabled>-- Select Currency --</option>
+        </select>
+    </label><br>
+    <label>Amount <input type="number" name="amount"></label>
+    <button type="submit">Convert</button><br>
+</form>
+<button type="button" id="switch">Switch</button><br>
+<output>0</output>
 <script src="script.js"></script>
 </body>
 </html>
