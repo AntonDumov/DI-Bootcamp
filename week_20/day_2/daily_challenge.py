@@ -1,6 +1,3 @@
-import re
-
-
 def decode_matrix_string(
         matrix_string='''7ii
         Tsx
